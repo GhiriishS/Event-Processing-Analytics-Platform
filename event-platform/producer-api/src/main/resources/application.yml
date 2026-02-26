@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+app:
+  kafka:
+    topic: events.v1
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:29092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  datasource:
+    url: jdbc:postgresql://localhost:5432/eventdb
+    username: eventuser
+    password: eventpass
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
